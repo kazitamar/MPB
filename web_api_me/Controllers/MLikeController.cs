@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
-
+using Microsoft.AspNet.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace web_api_me.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class MLikeController : ControllerBase

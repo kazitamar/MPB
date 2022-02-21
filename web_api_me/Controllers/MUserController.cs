@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using Microsoft.AspNet.Authorization;
-using Microsoft.AspNetCore.Authentication;
 
 
 namespace web_api_me.Controllers
@@ -10,7 +8,6 @@ namespace web_api_me.Controllers
     [Route("[controller]")]
     public class MUserController : ControllerBase
     {
-        [Authorize]
         [HttpPost(Name = "PostMUser")]
         public HttpResponseMessage Post(int userId, string userName, string password, bool isUserAlloedToPost = false)
         {
