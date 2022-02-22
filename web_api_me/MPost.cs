@@ -5,7 +5,7 @@ namespace web_api_me
 {
     public class MPost: MPB
     {
-        private static readonly int MaxNumWordsAllowedInContent = 1000;
+        private static readonly int MaxCharsAllowedInContent = 1000;
         private static readonly int MaxCharsAllowedInTitle = 50;
         private static readonly string[] ForbiddenWords = new[]{"zzz", "aaa"};
         public int PostId { get; set; }
@@ -34,9 +34,9 @@ namespace web_api_me
                     return false;
                 }
                 PostContent = PostContent.Trim();
-                if (PostContent.Split(" ").Length > MaxNumWordsAllowedInContent)
+                if (PostContent.Length > MaxCharsAllowedInContent)
                 {
-                    msg = "Your post Content pass the limit of " + MaxNumWordsAllowedInContent + " words";
+                    msg = "Your post Content pass the limit of " + MaxCharsAllowedInContent + " characters";
                     return false;
                 }
                 if (Title == null)
@@ -143,9 +143,9 @@ namespace web_api_me
                 if (PostContent != null)
                 {
                     PostContent = PostContent.Trim();
-                    if (PostContent.Split(" ").Length > MaxNumWordsAllowedInContent - 1)
+                    if (PostContent.Length > MaxCharsAllowedInContent)
                     {
-                        msg = "Your post Content pass the limit of " + MaxNumWordsAllowedInContent + " words";
+                        msg = "Your post Content pass the limit of " + MaxCharsAllowedInContent + " characters";
                         return false;
                     }
                     //My arbitrary rule:

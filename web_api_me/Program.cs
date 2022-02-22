@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNet.Authorization;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,8 +15,8 @@ builder.Services.AddAuthentication("BasicAuthentication").AddScheme<Authenticati
 /*builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("BasicAuthentication",new AuthorizationPolicyBuilder("BasicAuthentication").RequireAuthenticatedUser().Build());
-});*/
-/*builder.Services.AddAuthorization(options =>
+});
+builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("BasicAuthentication", authBuilder =>
         {
@@ -25,6 +24,7 @@ builder.Services.AddAuthentication("BasicAuthentication").AddScheme<Authenticati
             authBuilder.RequireClaim("NameIdentifier");
         });
 });*/
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
